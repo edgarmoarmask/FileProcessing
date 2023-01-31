@@ -1,0 +1,50 @@
+﻿@page "/login"
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@layout LoginLayout
+@inject NavigationManager nav
+@inject Blazored.LocalStorage.ILocalStorageService ls
+
+
+<br />
+<br/>
+<br />
+<br />
+<br />
+<br />
+<MudGrid Class="justify-center">
+    <img class="justify-center" src="images/login.svg" width="250" />
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                
+                <MudTextField @bind-Value="username" T="string" Label="Username" Required="true" RequiredError="User name is required!" />
+                <MudTextField @bind-Value="passwd" T="string" Label="Password" InputType="InputType.Password" />
+                <div class="d-flex align-center justify-space-between">
+                    <MudCheckBox T="bool" Label="Keep logged in" />
+                    <MudButton OnClick="()=>Submit()" Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Login</MudButton>
+                </div>
+            </MudForm>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+
+@code {
+    bool success;
+    string[] errors = { };
+    MudForm form;
+    string username;
+    string passwd;
+
+    
+    public async Task Submit()
+    {
+        if(username=="admin" && passwd=="admin")
+        {
+            await ls.SetItemAsync("auth", "set");
+            nav.NavigateTo("/");
+        }
+    }
+
+}

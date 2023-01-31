@@ -1,0 +1,261 @@
+﻿@page "/servers"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Niise Cluster</h1>
+
+
+
+
+<div style="display:flex;justify-content:center">
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Data Node 1</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>Impala</td>
+                <td>Kafka</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Parquet/Avro</td>
+            </tr>
+            <tr>
+                <td>Spark</td>
+                <td>Zookeeper</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Data Node 2</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>Impala</td>
+                <td>Kafka</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Parquet/Avro</td>
+            </tr>
+            <tr>
+                <td>Spark</td>
+                <td>Zookeeper</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Data Node 3</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>Impala</td>
+                <td>Kafka</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Parquet/Avro</td>
+            </tr>
+            <tr>
+                <td>Spark</td>
+                <td>Zookeeper</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Data Node 4</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>Impala</td>
+                <td>Ezdata</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Parquet/Avro</td>
+            </tr>
+            <tr>
+                <td>Spark</td>
+                <td>Hive</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+
+<div style="display:flex;justify-content:center">
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Data Node 5/Name Node 2</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>Impala</td>
+                <td>Ezdata</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Parquet/Avro</td>
+            </tr>
+            <tr>
+                <td>Spark</td>
+                <td>Solr</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Name Node 1</th>
+            </tr>
+            <tr>
+                <td>HDFS</td>
+                <td>YARN</td>
+            </tr>
+            <tr>
+                <td>MapReduce</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td>PostgreSQL</td>
+                <td>Hive</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>Spotlight Manager</td>
+            </tr>
+            <tr>
+                <td>Spotlight RBAC</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Edge Node 1</th>
+            </tr>
+            <tr>
+                <td><a href="http://172.16.9.11:8088" target="_blank">Hue</a></td>
+                <td>Flume</td>
+            </tr>
+            <tr>
+                <td><a href="http://172.16.9.11:6010" target="_blank">EzData</a></td>
+                <td>Sqoop</td>
+            </tr>
+            <tr>
+                <td>OpenJDK</td>
+                <td>NTP</td>
+            </tr>
+            <tr>
+                <td><a href="http://172.16.9.11:8888" target="_blank">Jupyter Notebook</a></td>
+                <td>Speed DB</td>
+            </tr>
+        </table>
+    </div>
+
+
+</div>
+
+<style>
+    table, td, th {
+        border: 8px solid #57544c;
+        text-align: left;
+    }
+
+    table {
+        
+        color: #57544c;
+        border-collapse: collapse;
+        width: 300px;
+        background-color: #57544c;
+        margin: 10px;
+    }
+
+    a{
+        color: #57544c;
+    }
+    th, td {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 15px 0;
+        font-size: 15px;
+    }
+</style>
+
+<!--
+    White Theme
+<style>
+    table, td, th {
+        border: 8px solid #2196F3;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 300px;
+        background-color: #2196F3;
+        margin: 10px;
+    }
+
+    th, td {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 15px 0;
+        font-size: 15px;
+    }
+</style>
+-->

@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<div class="container">
+   @Body
+
+</div>
+
+@code {
+    bool _isDarkMode = true;
+
+}

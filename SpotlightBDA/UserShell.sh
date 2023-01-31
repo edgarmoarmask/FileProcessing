@@ -1,0 +1,2 @@
+﻿/usr/sbin/useradd $1; echo "$1:$2" | chpasswd ; /usr/sbin/usermod -a -G sftphadoop $1 ; mkdir /hdfsnfs/user/$1 ; mkdir /hdfsnfs/user/$1/uploads ; chown root:root /hdfsnfs/user /hdfsnfs/user/$1 ; chmod 755 /hdfsnfs/user /hdfsnfs/user/$1 
+chmod 777 /hdfsnfs/user/$1/uploads 

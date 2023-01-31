@@ -1,0 +1,12 @@
+﻿
+<MudPaper Class="border-solid border-2 mud-border-primary pa-4" Elevation="0" >
+    <MudTextField @bind-Value="@Model.StartString" T="string" Label="For line start with" Required="true" RequiredError="Policy name is required!" />
+    <MudTextField @bind-Value="@Model.Limit" T="int" Label="Line length limit" Required="true" RequiredError="Policy name is required!" />
+</MudPaper>
+<br />
+
+@code {
+    [Parameter]
+    public CheckLimitPolicy Model { get; set; }
+}
+

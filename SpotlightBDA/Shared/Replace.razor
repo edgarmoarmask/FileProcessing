@@ -1,0 +1,32 @@
+﻿
+<MudPaper Class="border-solid border-2 mud-border-primary pa-4" Elevation="0" >
+    
+
+    <MudSelect @bind-Value="@Model.Find" T="string" Label="Find character" Required="true" RequiredError="Policy name is required!" AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@("\t")">Tab </MudSelectItem>
+        <MudSelectItem Value="@(" ")">Space</MudSelectItem>
+        <MudSelectItem Value="@("")">None</MudSelectItem>
+        <MudSelectItem Value="@("~")">~</MudSelectItem>
+        <MudSelectItem Value="@("!")">!</MudSelectItem>
+        <MudSelectItem Value="@(";")">;</MudSelectItem>
+        <MudSelectItem Value="@("#")">#</MudSelectItem>
+        <MudSelectItem Value="@("$")">$</MudSelectItem>
+        <MudSelectItem Value="@("%")">%</MudSelectItem>
+        <MudSelectItem Value="@("^")">^</MudSelectItem>
+        <MudSelectItem Value="@("*")">*</MudSelectItem>
+        <MudSelectItem Value="@("=")">=</MudSelectItem>
+     </MudSelect>
+
+    <MudSelect @bind-Value="@Model.Replace" T="string" Label="Replace with" Required="true" RequiredError="Policy name is required!"  AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@("\t")">Tab </MudSelectItem>
+        <MudSelectItem Value="@(" ")">Space </MudSelectItem>
+        <MudSelectItem Value="@("")">None </MudSelectItem>
+    </MudSelect>
+</MudPaper>
+
+<br/>
+
+@code {
+    [Parameter]
+    public ReplacePolicy Model { get; set; }
+}
