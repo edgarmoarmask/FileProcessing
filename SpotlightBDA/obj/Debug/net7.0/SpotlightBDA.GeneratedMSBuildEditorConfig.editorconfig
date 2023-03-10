@@ -9,61 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SpotlightBDA
 build_property.RootNamespace = SpotlightBDA
-build_property.ProjectDir = D:\dev2\FileProcessing\SpotlightBDA\
+build_property.ProjectDir = D:\dev2\FileProcessing\FileProcessProject\SpotlightBDA\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\dev2\FileProcessing\SpotlightBDA
+build_property.MSBuildProjectDirectory = D:\dev2\FileProcessing\FileProcessProject\SpotlightBDA
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/App.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Pages/Index.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/Alter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWx0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Pages/Login.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Pages/Servers.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmVycy5yYXpvcg==
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/Result.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzdWx0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/CheckLimit.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/CheckLimit.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENoZWNrTGltaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/Replace.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/Dialog.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/Output.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE91dHB1dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/Replace.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlcGxhY2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/SurveyPrompt.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/_Imports.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/LoginLayout.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-h6afg36xdl
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/MainLayout.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-m3wzox9u3g
 
-[D:/dev2/FileProcessing/SpotlightBDA/Shared/NavMenu.razor]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-7m7tpio93g
 
-[D:/dev2/FileProcessing/SpotlightBDA/Pages/Error.cshtml]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/dev2/FileProcessing/SpotlightBDA/Pages/_Host.cshtml]
+[D:/dev2/FileProcessing/FileProcessProject/SpotlightBDA/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

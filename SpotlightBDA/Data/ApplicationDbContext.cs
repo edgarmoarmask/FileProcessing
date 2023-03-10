@@ -25,5 +25,7 @@
         public DbSet<ReplacePolicy> ReplacePolicies { get; set; }
         public DbSet<CheckLimitPolicy> CheckLimitPolicies { get; set; }
         public DbSet<FileProcessPolicy> FileProcessPolicies { get; set; }
+        public DbSet<FolderData> FolderData { get; set; }
+        public DbSet<SpecialCharacter> SpecialCharacters { get; set; }
     }
 }

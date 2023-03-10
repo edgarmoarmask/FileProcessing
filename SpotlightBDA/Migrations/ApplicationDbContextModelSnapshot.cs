@@ -70,6 +70,22 @@ namespace SpotlightBDA.Migrations
                     b.ToTable("FileProcessPolicies");
                 });
 
+            modelBuilder.Entity("SpotlightBDA.Data.FolderData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FolderData");
+                });
+
             modelBuilder.Entity("SpotlightBDA.Data.ReplacePolicy", b =>
                 {
                     b.Property<int>("Id")
@@ -81,7 +97,11 @@ namespace SpotlightBDA.Migrations
                     b.Property<int?>("FileProcessPolicyId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Find")
+                    b.Property<string>("FindDescription")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FindValue")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -94,6 +114,27 @@ namespace SpotlightBDA.Migrations
                     b.HasIndex("FileProcessPolicyId");
 
                     b.ToTable("ReplacePolicies");
+                });
+
+            modelBuilder.Entity("SpotlightBDA.Data.SpecialCharacter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SpecialCharacters");
                 });
 
             modelBuilder.Entity("SpotlightBDA.Data.CheckLimitPolicy", b =>

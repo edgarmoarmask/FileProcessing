@@ -8,6 +8,7 @@
 @using System.Net.Http;
 @using System.Net.Http.Json;
 @using SpotlightBDA.Shared;
+@inject IDialogService DialogService
 @inject Blazored.LocalStorage.ILocalStorageService ls
 @inject HttpClient Http
 @inject NavigationManager nav
@@ -15,38 +16,52 @@
 @inject IToastService toastService
 
 
-<br>
+
+@if(showInput)
+{
+    <br>
     <h2>File Content Policy</h2>
 
 
-<br>
-<MudGrid>
-    <MudItem xs="12" sm="7">
-        <MudPaper Class="pa-4">
-            <MudForm >
-               <h2>Replace Text</h2>
-            @foreach (ReplacePolicy rp in ReplacePolicyList)
-            {
-                <Replace Model="rp" />
-            }
-            <MudButton OnClick="@(()=>ReplacePolicyList.Add(new ReplacePolicy()))" Variant="Variant.Filled" Color="Color.Primary">Add Replace Text</MudButton>
-                <br /><br /><br /><br />
-            <h2>Line Length Limit</h2>
+    <br>
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudPaper Class="pa-4">
+                <MudForm >
+                   <h2>Replace Text</h2>
+                    @foreach (ReplacePolicy rp in ReplacePolicyList)
+                    {
+                        <Replace Model="rp" />
+                    }
+                <MudButton OnClick="@(()=>ReplacePolicyList.Add(new ReplacePolicy()))" Variant="Variant.Filled" Color="Color.Primary">Add Replace Text</MudButton>
+                    <br /><br /><br /><br />
+                <h2>Line Length Limit</h2>
 
-            @foreach (CheckLimitPolicy cp in CheckLimitPolicyList)
-            {
-                <CheckLimit Model="cp" />
-            }
-            <MudButton OnClick="@(()=>CheckLimitPolicyList.Add(new CheckLimitPolicy()))" Variant="Variant.Filled" Color="Color.Primary">Add Line Length Limit</MudButton>
-                <br /><br /><br /><br />
-                <div class="d-flex align-center justify-space-between">
-                    <MudButton OnClick="@(()=>Submit())" Variant="Variant.Filled" Color="Color.Secondary">Start File Processing</MudButton>
-                </div>
-            </MudForm>
-        </MudPaper>
-    </MudItem>
-    
-</MudGrid>
+                    @foreach (CheckLimitPolicy cp in CheckLimitPolicyList)
+                    {
+                        <CheckLimit Model="cp" />
+                    }
+                    <MudButton OnClick="@(()=>CheckLimitPolicyList.Add(new CheckLimitPolicy()))" Variant="Variant.Filled" Color="Color.Primary">Add Line Length Limit</MudButton>
+                    <MudButton OnClick="@(()=>Test())" Variant="Variant.Filled" Color="Color.Primary">test</MudButton>
+                    <br /><br /><br /><br />
+                    <div class="d-flex align-center justify-space-between">
+                        <MudButton OnClick="@(()=>Submit())" Variant="Variant.Filled" Color="Color.Secondary">Start File Processing</MudButton>
+                    </div>
+                </MudForm>
+            </MudPaper>
+        </MudItem>
+
+    </MudGrid>
+}
+@if(showOutput)
+{
+    <br>
+    <h2>Cleansing Results</h2>
+
+
+    <br>
+    <Output ResultStatsList="@resultStats"></Output>
+}
 
 
 
@@ -59,17 +74,10 @@
     FileProcessPolicy fileProcessPolicy = new();
     List<CheckLimitPolicy> CheckLimitPolicyList = new();
     List<ReplacePolicy> ReplacePolicyList = new();
-    int limit = 0;
-    int counter = 1;
-    int tabs = 0;
+    bool showInput = true;
+    bool showOutput = false;
 
-    int H = 0;
-    int D = 0;
-    int R = 0;
-    List<int> errlines = new();
-    List<int> tablines = new();
-
-
+    List<ResultStats> resultStats = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -88,6 +96,111 @@
         */
 
     }
+
+    void Test()
+    {
+        Console.WriteLine(ReplacePolicyList.First().Find.Value);
+    }
+
+    public void Submit()
+    {
+        ProcessFolder();
+
+        OpenOutput();
+    }
+
+    public void ProcessFolder()
+    {
+
+        foreach (string file in Directory.EnumerateFiles("Samples/K1", "*"))
+        {
+            CleanseCreateFile(file);
+        }
+
+    }
+
+
+    public void CleanseCreateFile(string file)
+    {
+        string[] asd = file.Split("/");
+        using (var fs = File.Create("Samples/Processed/"+asd.Last()))
+        {
+
+
+            using (var newfile = new StreamWriter(fs))
+            {
+                //start new file line counter
+                int counter = 1;
+
+                //gather statistics for finished file
+                ResultStats resstat = new();
+                resstat.Filename = asd.Last();
+                resstat.Messages = new();
+
+                int replaceCounter = 0;
+
+                foreach (string line in File.ReadLines(file))
+                {
+
+                    //replace chars
+                    string writeline = line;
+
+                    foreach (ReplacePolicy a in ReplacePolicyList)
+                    {
+                        if (writeline.Contains(a.Find.Value))
+                        {
+                            replaceCounter++;
+                            resstat.Messages.Add("Character "+a.Find.Description+" encountered on line "+counter);
+                            writeline=writeline.Replace(a.Find.Value, a.Replace);
+                        }
+                    }
+                    newfile.WriteLine(writeline);
+
+
+                    //check for line length after cleansing
+                    foreach (CheckLimitPolicy b in CheckLimitPolicyList)
+                    {
+                        if (line.Substring(0, b.StartString.Length) == b.StartString)
+                        {
+                            
+                            if (line.Length > b.Limit)
+                            {
+                                resstat.Messages.Add("Character limit exceeds "+b.Limit+" on line "+counter+" after cleansing. (Line starts with "+b.StartString+")");
+                            }
+
+                        }
+                    }
+
+                    counter++;
+
+                }
+
+                if(resstat.Messages.Count()>0)
+                {
+                    resstat.Messages.Add(replaceCounter+" Total replacements");
+                    resultStats.Add(resstat);
+                }
+
+
+            }
+        }
+    }
+
+
+    private void OpenDialog()
+    {
+        var options = new DialogOptions { MaxWidth = MaxWidth.Medium, FullWidth = true, CloseOnEscapeKey = true };
+
+        var parameters = new DialogParameters { ["ResultStatsList"]=resultStats };
+        DialogService.Show<Dialog>("Result Statistics", parameters, options);
+    }
+
+    private void OpenOutput()
+    {
+        showOutput = true;
+        showInput = false;
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         var auth = await ls.GetItemAsync<string>("auth");
@@ -96,81 +209,5 @@
             nav.NavigateTo("/login");
         }
         Console.WriteLine("rednders");
-    }
-
-    public void ProcessFile()
-    {
-
-        using (var fs = File.Create("s1a0020221201b_processed"))
-        {
-            using (var newfile = new StreamWriter(fs))
-            {
-                foreach (string line in File.ReadLines(@"s1a0020221201b"))
-                {
-
-                    //remove tabs
-                    string writeline = line;
-                    foreach (ReplacePolicy a in ReplacePolicyList)
-                    {
-                        writeline = FindReplace(a.Find, a.Replace, writeline);
-                    }
-                    newfile.WriteLine(writeline);
-
-
-                    //check for error
-                    foreach (CheckLimitPolicy b in CheckLimitPolicyList)
-                    {
-                        CheckLength(writeline, b.StartString, b.Limit);
-                    }
-
-                    counter++;
-                }
-            }
-        }
-    }
-
-    public string FindReplace(string find, string replace, string line)
-    {
-        while (line.Contains(find))
-        {
-            tabs++;
-            tablines.Add(counter);
-            line=line.Replace(find, replace);
-        }
-        return line;
-    }
-
-    public void CheckLength(string line, string startstring, int linelimit)
-    {
-        if (line.Substring(0, startstring.Length) == startstring )
-        {
-            if (line.Length > linelimit)
-            {
-                errlines.Add(counter);
-            }
-
-        }
-    }
-
-    //public void ReadDirList();
-    //public void MoveFiles();
-
-    public void Submit()
-    {
-        ProcessFile();
-        toastService.ShowInfo("Processing finished, "+counter+" lines processed, "+tabs+" tabs replaced");
-
-        string tabstring = "";
-        foreach (int tabline in tablines)
-        {
-            tabstring = tabstring + ", " + tabline;
-        }
-        toastService.ShowError("Lines: "+tabstring+"    Contain tab");
-        
-        foreach (int errline in errlines)
-        {
-            toastService.ShowError("Error after remove tab, check line: "+errline+" exceeds limit length");
-        }
-
     }
 }

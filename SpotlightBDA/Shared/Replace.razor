@@ -1,8 +1,15 @@
-﻿
+﻿@inject ApplicationDbContext db
+
 <MudPaper Class="border-solid border-2 mud-border-primary pa-4" Elevation="0" >
     
 
-    <MudSelect @bind-Value="@Model.Find" T="string" Label="Find character" Required="true" RequiredError="Policy name is required!" AnchorOrigin="Origin.BottomCenter">
+    <MudSelect @bind-Value="@Model.Find" T="SpecialCharacter" Label="Find character" Required="true" AnchorOrigin="Origin.BottomCenter">
+        
+        @foreach(SpecialCharacter character in charlist)
+        {
+            <MudSelectItem Value="@character">@character.Description </MudSelectItem>
+        }
+        <!--
         <MudSelectItem Value="@("\t")">Tab </MudSelectItem>
         <MudSelectItem Value="@(" ")">Space</MudSelectItem>
         <MudSelectItem Value="@("")">None</MudSelectItem>
@@ -14,12 +21,14 @@
         <MudSelectItem Value="@("%")">%</MudSelectItem>
         <MudSelectItem Value="@("^")">^</MudSelectItem>
         <MudSelectItem Value="@("*")">*</MudSelectItem>
-        <MudSelectItem Value="@("=")">=</MudSelectItem>
+        <MudSelectItem Value="@("m³")">=</MudSelectItem>
+        -->
      </MudSelect>
 
-    <MudSelect @bind-Value="@Model.Replace" T="string" Label="Replace with" Required="true" RequiredError="Policy name is required!"  AnchorOrigin="Origin.BottomCenter">
+    <MudSelect @bind-Value="@Model.Replace" T="string" Label="Replace with" Required="true"  AnchorOrigin="Origin.BottomCenter">
         <MudSelectItem Value="@("\t")">Tab </MudSelectItem>
         <MudSelectItem Value="@(" ")">Space </MudSelectItem>
+        <MudSelectItem Value="@("  ")">Double Space</MudSelectItem>
         <MudSelectItem Value="@("")">None </MudSelectItem>
     </MudSelect>
 </MudPaper>
@@ -29,4 +38,13 @@
 @code {
     [Parameter]
     public ReplacePolicy Model { get; set; }
+    List<SpecialCharacter> charlist = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        charlist =  db.SpecialCharacters.ToList();
+
+        
+
+    }
 }

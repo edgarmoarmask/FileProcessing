@@ -18,6 +18,25 @@ namespace SpotlightBDA.Data
         public void Initialize()
         {
             this.db.Database.Migrate();
+
+            List<SpecialCharacter> chars = new List<SpecialCharacter>()
+            {
+                new SpecialCharacter(){ Description="Tab", Value="\t"},
+                new SpecialCharacter(){ Description="Space", Value=" "},
+                new SpecialCharacter(){ Description="Empty String", Value=""},
+                new SpecialCharacter(){ Description=";", Value=";"},
+                new SpecialCharacter(){ Description="#", Value="#"},
+                new SpecialCharacter(){ Description="$", Value="$"},
+                new SpecialCharacter(){ Description="%", Value="%"},
+                new SpecialCharacter(){ Description="^", Value="^"},
+                new SpecialCharacter(){ Description="m² (m squared)", Value="m²"},
+                new SpecialCharacter(){ Description="m³ (m power three)", Value="m³"},
+                new SpecialCharacter(){ Description="*", Value="*"},
+            };
+
+            this.db.SpecialCharacters.AddRange(chars);
+            this.db.SaveChanges();
         }
     }
 }
+

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u2EsJ8+i9JN3pGwY659Vcp5mCem8n9vXJNuhi62IR8/ddChiEjU2P609Nek4mM0gW5U3X7UQThUZX3wlOxrjIw==",
+  "dgSpecHash": "BE8dVVKaFf1DDOHzjTUyD7j8tNDfrRvmuWnU1z/WqdeNXG3pqzsKB8MGZrr8SbNCpWTDc41AcvlIFXNugwKivg==",
   "success": true,
-  "projectFilePath": "D:\\dev2\\FileProcessing\\SpotlightBDA\\SpotlightBDA.csproj",
+  "projectFilePath": "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\SpotlightBDA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edgar\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
     "C:\\Users\\edgar\\.nuget\\packages\\blazored.toast\\4.0.0\\blazored.toast.4.0.0.nupkg.sha512",

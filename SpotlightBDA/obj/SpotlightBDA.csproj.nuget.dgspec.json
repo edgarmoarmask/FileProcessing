@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dev2\\FileProcessing\\SpotlightBDA\\SpotlightBDA.csproj": {}
+    "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\SpotlightBDA.csproj": {}
   },
   "projects": {
-    "D:\\dev2\\FileProcessing\\SpotlightBDA\\SpotlightBDA.csproj": {
+    "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\SpotlightBDA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dev2\\FileProcessing\\SpotlightBDA\\SpotlightBDA.csproj",
+        "projectUniqueName": "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\SpotlightBDA.csproj",
         "projectName": "SpotlightBDA",
-        "projectPath": "D:\\dev2\\FileProcessing\\SpotlightBDA\\SpotlightBDA.csproj",
+        "projectPath": "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\SpotlightBDA.csproj",
         "packagesPath": "C:\\Users\\edgar\\.nuget\\packages\\",
-        "outputPath": "D:\\dev2\\FileProcessing\\SpotlightBDA\\obj\\",
+        "outputPath": "D:\\dev2\\FileProcessing\\FileProcessProject\\SpotlightBDA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
